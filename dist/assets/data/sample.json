@@ -1,0 +1,22 @@
+[
+	{
+		"id": 1,
+		"name": "sample-A",
+		"price": "3,990",
+		"saleprice": "",
+		"path": "sample-A",
+		"url": 7777,
+		"preceding": "",
+		"limited": ""
+	},
+	{
+		"id": 2,
+		"name": "sample-B",
+		"price": "3,990",
+		"saleprice": "",
+		"path": "sample-B",
+		"url": "commingsoon",
+		"preceding": "",
+		"limited": ""
+	}
+]

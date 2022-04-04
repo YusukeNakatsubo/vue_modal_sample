@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>Vue Modal Window</title>
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="loader" id="js-loader"></div>
+    <div class="root">
+      <h1>Vue Modal Window</h1>
+
+      <!-- <div class="root__container">
+        <div class="root__container--mv">
+          <div class="mv">
+            <p class="img">
+              <img src="" alt="" width="100%" height="auto">
+            </p>
+            <div id="news">
+              <div class="" data-start="" data-end="">
+                <div id="js-first-step"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="root__section">
+        <div class="root__section--menu">
+          <div class="menu-head">
+            <h1>sample</h1>
+          </div>
+          <div class="menu-body">
+            <ul>
+              <a href="#case01"><li>sample<span class="fas fa-angle-down"></span></li></a>
+            </ul>
+          </div>
+        </div>
+      </section> -->
+
+      <article class="root__article" id="case01">
+        <div class="root__article--head">
+          <div class="heading">
+            <h2 class="heading__tit">sample</h2>
+          </div>
+        </div>
+        <div class="root__article--body">
+          <div class="product-lists-wrapper">
+            <div id="modal-case01" class="modal modal-wrapper">
+              <ul class="product-lists-wrapper__products">
+                <li class="product-lists-wrapper__products--product" v-for="product in products" @click="showModal = product.id">
+                  <h4 class="product-name">
+                    {{ product.name }}
+                  </h4>
+                  <p :class="product.preceding"></p>
+                  <p :class="product.limited"></p>
+                  <p :class="product.mailorder"></p>
+                  <p class="product-img">
+                    <img :src="'/assets/img/sample/thumb/' + product.path + '.jpg'" class="rsshop_modal" width="100%" height="auto">
+                  </p>
+                </li>
+              </ul>
+              <ul>
+                <li v-for="product in products">
+                  <modal-case01 v-if="showModal == product.id" @close="showModal = false" :key="product.id">
+                    <div slot="header">
+                      <p class="product-img">
+                        <img :src="'/assets/img/sample/detail/' + product.path + '.jpg'" width="100%" height="auto">
+                      </p>
+                    </div>
+                    <div slot="body">
+                      <p :class="product.preceding"></p>
+                      <p :class="product.limited"></p>
+                      <p :class="product.mailorder"></p>
+                      <p class="product-name" v-html="product.name"></p>
+                      <p class="product-price">{{ product.price }}yen</p>
+                      <p v-if="product.url === 'commingsoon'" class="product-link">
+                        <span>COMMING SOON</span>
+                      </p>
+                      <p v-else class="product-link">
+                        <a :href="'http://127.0.0.1:8080?product_id=' + product.url" target="_blank">BUY NOW</a>
+                      </p>
+                    </div>
+                    <div class="modal-link" slot="footer">
+                      <ul>
+                        <li class="modal-link__btn" @click="showModal = product.id - 1"><i class="fas fa-angle-left"></i>PREV</li>
+                        <li class="modal-link__btn" @click="showModal = product.id + 1">NEXT<i class="fas fa-angle-right"></i></li>
+                      </ul>
+                    </div>
+                  </modal-case01>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="./assets/js/script.js" async></script>
+    <script src="./assets/js/sample.js" async></script>
+  </body>
+</html>

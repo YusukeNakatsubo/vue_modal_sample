@@ -1,0 +1,57 @@
+//----------------------------------------
+// font
+//----------------------------------------
+
+@font-face {
+  font-family: 'Noto Sans JP Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../font/NotoSansJP-Bold.woff);
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Noto Sans JP Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: url(../font/NotoSansJP-Medium.woff);
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Noto Sans JP Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../font/NotoSansJP-Regular.woff);
+  font-display: swap;
+}
+
+$font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+html {
+  font-family: $font-family;
+  font-size: 10px;
+  color: #2B2B2B;
+}
+
+//----------------------------------------
+// variables
+//----------------------------------------
+$transition: all .5s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+
+//----------------------------------------
+// media query
+//----------------------------------------
+$breakpoints: (
+  'sp': 'screen and (max-width: 768px)',
+  'tb': 'screen and (max-width: 960px)',
+) !default;
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq($breakpoint: tb) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

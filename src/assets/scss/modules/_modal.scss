@@ -1,0 +1,267 @@
+//----------------------------------------
+// modal
+//----------------------------------------
+
+@import './_mixin';
+
+.vue-modal-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .4);
+  display: table;
+  transition: all .5s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  cursor: pointer;
+}
+
+.vue-modal-close {
+  position: fixed;
+  top: 4rem;
+  right: 4rem;
+  display: inline-flex;
+  width: 4em;
+  height: 0.2rem;
+  background: #fff;
+  border-radius: 0.2rem;
+  vertical-align: middle;
+  transform: rotate(45deg);
+  cursor: pointer;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transform: rotate(90deg);
+  }
+}
+
+.vue-modal-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.vue-modal-wrapper {
+  max-width: 43rem;
+  width: 100%;
+  height: auto;
+  padding: 2rem;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .4);
+  text-align: center;
+  transition: all .5s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  position: relative;
+  @include mq(sp) {
+    width: calc(100% - 4rem);
+  }
+}
+
+.vue-modal-header {
+  .is_product_img {
+    max-width: 35rem;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 1.5rem;
+    img {
+        max-width: 100%;
+    }
+  }
+}
+
+.vue-modal-body {
+  .is_product_preceding {
+    position: relative;
+    z-index: 0;
+    &:before {
+      content: '';
+      display: inline-flex;;
+      width: 4rem;
+      height: 4rem;
+      background-image: url('../img/common/rsshop/preceding_icon.png');
+      background-size: contain;
+      position: absolute;
+      top: -6rem;
+      right: 0;
+      z-index: 1;
+    }
+  }
+  .is_product_limited {
+    position: relative;
+    z-index: 0;
+    &:before {
+      content: '';
+      display: inline-flex;;
+      width: 4rem;
+      height: 4rem;
+      background-image: url('../img/common/rsshop/limited_icon.png');
+      background-size: contain;
+      position: absolute;
+      top: -6rem;
+      right: 0;
+      z-index: 1;
+    }
+  }
+  .is_product_mailorder {
+    position: relative;
+    z-index: 0;
+    &:before {
+      content: '';
+      display: inline-flex;;
+      width: 4rem;
+      height: 4rem;
+      background-image: url('../img/common/rsshop/mailorder_icon.png');
+      background-size: contain;
+      position: absolute;
+      top: -6rem;
+      right: 0;
+      z-index: 1;
+    }
+  }
+  .product-name {
+    margin-bottom: 1rem;
+    line-height: 1.25;
+    font-size: 2rem;
+    font-family: 'Noto Sans JP Bold';
+    font-weight: 700;
+    color: #F3160A;
+    position: relative;
+    span {
+      font-size: 1.2rem;
+      vertical-align: top;
+    }
+    .product-name-sp {
+      display: none;
+    }
+  }
+  .product-price {
+    // margin-bottom: 1rem;
+    line-height: 1.0;
+    font-size: 2rem;
+    font-family: 'Noto Sans JP Medium';
+    font-weight: 500;
+  }
+  .product-description {
+    font-size: 1.4rem;
+  }
+  .product-link {
+    margin: 1.5rem auto;
+    font-size: 1.6rem;
+    a {
+      display: inline-flex;
+      padding: 1.5rem 3rem;
+      border-radius: 2px;
+      background: #F3160A;
+      font-size: 1.6rem;
+      font-family: 'Noto Sans JP Bold';
+      font-weight: 700;
+      color: #fff;
+      transition: $transition;
+      &:hover {
+        background: #000;
+      }
+    }
+    span {
+      display: inline-flex;
+      padding: 1.5rem 3rem;
+      border-radius: 2px;
+      background: #000;
+      font-size: 1.6rem;
+      font-family: 'Noto Sans JP Bold';
+      font-weight: 700;
+      color: #fff;
+      transition: $transition;
+    }
+    &.is_inactive {
+      display: inline-flex;
+      padding: 1.5rem 3rem;
+      background: #C0C5C2;
+      font-size: 1.6rem;
+      font-family: 'Noto Sans JP Bold';
+      font-weight: 700;
+      color: #fff;
+      opacity: 0.6;
+    }
+  }
+  .modal-link {
+    &__btn {
+      transition: $transition;
+      transform: scale(1);
+      &:hover {
+        color: #F3160A;
+        transform: scale(1.02);
+      }
+    }
+  }
+  @include mq(sp) {
+    .product-name {
+      font-size: 1.6rem;
+      .is_product_name_sp {
+        display: block;
+      }
+    }
+    .product-price {
+      font-size: 1.4rem;
+    }
+    .product-description {
+      font-size: 1.4rem;
+    }
+    .product-link {
+      font-size: 1.4rem;
+      a, span {
+          font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+.vue-modal-footer {
+  .modal-link {
+    padding: 0 1.5rem 1rem;
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.4rem;
+      .modal-link__btn {
+        padding: 1rem 1.5rem;
+        background: #DCDCDC;
+        border-radius: 2px;
+        color: #F3160A;
+        &:first-of-type {
+            margin-right: 1.5rem;
+        }
+        .fa-angle-left {
+            padding-right: .5rem;
+        }
+        .fa-angle-right {
+            padding-left: .5rem;
+        }
+      }
+    }
+  }
+}
+
+// Original vue setting
+.modal-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .is_modal_wrapper,
+.modal-leave-active .is_modal_wrapper {
+    transform: scale(1.1);
+}
